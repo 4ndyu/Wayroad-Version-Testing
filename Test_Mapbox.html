@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Testing MapBox API</title>
+		
+		<!--
+		!	Purpose: 	Getting the .JS and .CSS file to generate the Mapbox map
+		!	Author: 	Mapbox
+		!	From: 		https://docs.mapbox.com/mapbox-gl-js/guides/
+		-->
+		<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+		<link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+		<style>
+			#instructions {
+				position: absolute;
+				margin: 20px;
+				width: 25%;
+				top: 0;
+				bottom: 20%;
+				padding: 20px;
+				background-color: rgba(255, 255, 255, 0.9);
+				overflow-y: scroll;
+				font-family: sans-serif;
+				font-size: 0.8em;
+				line-height: 2em;
+			}
+
+			.duration {
+				font-size: 2em;
+			}
+		</style>
+
+	</head>
+	<body>
+
+		<h1>Test Mapbox</h1>
+		
+		<div id='map' style='width: auto; height: 1000px'></div>
+		<!--<div id="instructions"></div>-->
+		<script>
+			/*
+			*	Purpose: 	Generates the Mapbox map
+			*	Author: 	Mapbox
+			*	From: 		https://docs.mapbox.com/mapbox-gl-js/guides/
+			*	
+			*	Edited by: 	Andy Lam Yu
+			*	Date:		11/08/2021
+			*/
+			mapboxgl.accessToken = 'pk.eyJ1IjoiMzM1MDU4NjgiLCJhIjoiY2tzNzhyMGwzMGhnODJvbW0yenZmc3djNiJ9.neYcWHKTrSLZvVv3783tBA';
+			
+			var map = new mapboxgl.Map({
+				container: 'map',
+				style: 'mapbox://styles/mapbox/streets-v11',
+				center: [115.835, -32.069],		// Centers at Murdoch University at Murdoch Campus
+				zoom: 15.75
+			});
+			
+			/*
+			*	Purpose: 	Creates a boundary that will restrict users to not be able to move outside the
+			*				set boundary, and the boundary below is set around the Murdoch Campus
+			*
+			* 	Corner point of boundary
+			*					| South/West			| North/East
+			*					V 						V 
+			*/
+			var boundaries = [[115.825, -32.079], [115.845, -32.059]];
+			map.setMaxBounds(boundaries);
+			
+			// initialize the map canvas to interact with later
+			var canvas = map.getCanvasContainer();
+
+			/*	NEED CHANGES!!!!!
+			*	Andy --- The Start point is the center of the map, this start point will need
+			*			 to change the start point to the user geo location
+			*/
+			var start = [115.835, -32.069];
+			
+			/*
+			*	Purpose: 	The code below is to create a html request to the Mapbox server to generate a route
+			*				using the start and end coodinates and use the return values to display the calculated routes
+			*	Author:		Mapbox
+			*	Form:		https://docs.mapbox.com/help/tutorials/getting-started-directions-api/
+			*
+			*	Edited by: 	Andy Lam Yu
+			*	Date:		15/08/2021
+			*/
+			function getRoute(end) {
+				var url = 'https://api.mapbox.com/directions/v5/mapbox/walking/' + start[0] + ',' + start[1] + ';'
+					+ end[0] + ',' + end[1] + '?steps=true&geometries=geojson&access_token=' + mapboxgl.accessToken;
+				// make an XHR request https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+				var req = new XMLHttpRequest();
+				req.open('GET', url, true);
+				// Andy ---	^ Code above uses the Mapbox route database to calculate the routes, should use our own calculation instead
+				
+				// Andy ---	The code below displays the calculated routes
+				req.onload = function() {
+					var json = JSON.parse(req.response);
+					var data = json.routes[0];
+					var route = data.geometry.coordinates;
+					var geojson = {
+						type: 'Feature',
+						properties: {},
+						geometry: {
+						type: 'LineString',
+						coordinates: route
+						}
+					};
+					
+					// if the route already exists on the map, reset it using setData
+					if (map.getSource('route')) {
+						map.getSource('route').setData(geojson);
+					} else { // otherwise, make a new request
+						map.addLayer({
+							id: 'route',
+							type: 'line',
+							source: {
+								type: 'geojson',
+								data: {
+									type: 'Feature',
+									properties: {},
+									geometry: {
+										type: 'LineString',
+										coordinates: geojson
+									}
+								}
+							},
+							layout: {
+								'line-join': 'round',
+								'line-cap': 'round'
+							},
+							paint: {
+								'line-color': '#3887be',
+								'line-width': 5,
+								'line-opacity': 0.75
+							}
+						});
+					}
+					// get the sidebar and add the instructions
+					/*var instructions = document.getElementById('instructions');
+					var steps = data.legs[0].steps;
+
+					var tripInstructions = [];
+					for (var i = 0; i < steps.length; i++) {
+						tripInstructions.push('<br><li>' + steps[i].maneuver.instruction) + '</li>';
+						instructions.innerHTML = '<br><span class="duration">Trip duration: ' + Math.floor(data.duration / 60) + ' min </span>' + tripInstructions;
+					}
+					*/
+				};
+				req.send();
+			}
+			
+			/*
+			*	Purpose: 	Gets the start and end point of the routes and loads the Routes on to the map
+			*	Author:		Mapbox
+			*	Form:		https://docs.mapbox.com/help/tutorials/getting-started-directions-api/
+			*
+			*	Edited by: 	Andy Lam Yu
+			*	Date:		15/08/2021
+			*/
+			map.on('load', function() {
+				// make an initial directions request that
+				// starts and ends at the same location
+				getRoute(start);
+
+				// Add starting point to the map
+				map.addLayer({
+					id: 'point',
+					type: 'circle',
+					source: {
+						type: 'geojson',
+						data: {
+							type: 'FeatureCollection',
+							features: [{
+								type: 'Feature',
+								properties: {},
+								geometry: {
+									type: 'Point',
+									coordinates: start
+								}
+							}]
+						}
+					},
+					paint: {
+						'circle-radius': 10,
+						'circle-color': '#3887be'
+					}
+				});
+				
+				/*
+				*	Purpose: 	Get the coodinations for the end destination from where the user clicked on the map
+				*	Author:		Mapbox
+				*	Form:		https://docs.mapbox.com/help/tutorials/getting-started-directions-api/
+				*
+				*	Edited by: 	Andy Lam Yu
+				*	Date:		15/08/2021
+				*/
+				map.on('click', function(e) {
+					var coordsObj = e.lngLat;
+					canvas.style.cursor = '';
+					var coords = Object.keys(coordsObj).map(function(key) {
+						return coordsObj[key];
+					});
+					var end = {
+						type: 'FeatureCollection',
+						features: [{
+							type: 'Feature',
+							properties: {},
+							geometry: {
+								type: 'Point',
+								coordinates: coords
+							}
+						}]
+					};
+					if (map.getLayer('end')) {
+						map.getSource('end').setData(end);
+					} else {
+						map.addLayer({
+							id: 'end',
+							type: 'circle',
+							source: {
+								type: 'geojson',
+								data: {
+									type: 'FeatureCollection',
+									features: [{
+										type: 'Feature',
+										properties: {},
+										geometry: {
+											type: 'Point',
+											coordinates: coords
+										}
+									}]
+								}
+							},
+							paint: {
+								'circle-radius': 10,
+								'circle-color': '#f30'
+							}
+						});
+					}
+					getRoute(coords);
+				});
+			});
+		</script>
+
+	</body>
+</html>
