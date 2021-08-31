@@ -79,6 +79,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
     - Class: 89
@@ -876,7 +878,7 @@ ScriptsOnlyBuild:
     className: ARPlaneMeshVisualizer
   - hash:
       serializedVersion: 2
-      Hash: c307406b74214f79ef78ac3ecb282176
+      Hash: 29933a011c70bacfb93549a58e9165c5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DisplayDestinations
@@ -961,4 +963,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Test_ArFoundation.unity
-  playerPath: F:/ICT302/Test2/test2.apk
+  playerPath: C:/Users/andyu/Desktop/Wayroad/Test2/test2.apk

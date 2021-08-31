@@ -19,12 +19,17 @@ public class DisplayDestinations : MonoBehaviour
     // The location where the items are going be placed
     public GameObject content;
 
+    public string dataFile = "destinations";
+
     // Start is called before the first frame update
     void Start()
     {
-        string[] fileContent = System.IO.File.ReadAllLines("assets/WayRoadMenu/destinations.txt");
+        TextAsset fileAsset = Resources.Load(dataFile) as TextAsset;
         
-        foreach(string line in fileContent)
+        string fileContent = fileAsset.text;
+        string[] fileLines = fileContent.Split('\n');
+
+        foreach (string line in fileLines)
         {
             string[] locations = line.Split(',');
 

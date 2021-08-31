@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -337,6 +337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemTemplate: {fileID: 3966055343872284, guid: faa1a7417c933084490549a0dbc191df, type: 3}
   content: {fileID: 99858365}
+  dataFile: destinations
 --- !u!1 &1912179891
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,7 +574,6 @@ GameObject:
   - component: {fileID: 1919933198}
   - component: {fileID: 1919933197}
   - component: {fileID: 1919933196}
-  - component: {fileID: 1919933200}
   m_Layer: 0
   m_Name: AR Camera
   m_TagString: MainCamera
@@ -681,13 +681,33 @@ Transform:
   m_Father: {fileID: 2059853657}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1919933200
+--- !u!1 &1978901285 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5130769056387350943, guid: e709ab9bce146ea4b919e5714d001ab7, type: 3}
+  m_PrefabInstance: {fileID: 5130769056642667750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1978901286
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1919933194}
+  m_GameObject: {fileID: 1978901285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f2ede14fe114a48907c9c6497ba01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemTemplate: {fileID: 3966055343872284, guid: faa1a7417c933084490549a0dbc191df, type: 3}
+  content: {fileID: 99858365}
+  dataFile: destinations
+--- !u!114 &1978901291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978901285}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d76e600e2572dc240b7d6cc22495f48e, type: 3}
@@ -915,7 +935,7 @@ PrefabInstance:
     - target: {fileID: 4873837739459025877, guid: e709ab9bce146ea4b919e5714d001ab7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1919933200}
+      objectReference: {fileID: 1978901291}
     - target: {fileID: 4873837739459025877, guid: e709ab9bce146ea4b919e5714d001ab7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1211,6 +1231,10 @@ PrefabInstance:
     - target: {fileID: 5130769056632921319, guid: e709ab9bce146ea4b919e5714d001ab7, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704259438265363290, guid: e709ab9bce146ea4b919e5714d001ab7, type: 3}
+      propertyPath: m_Name
+      value: MenuButton
       objectReference: {fileID: 0}
     - target: {fileID: 8947457080110360219, guid: e709ab9bce146ea4b919e5714d001ab7, type: 3}
       propertyPath: m_AnchorMax.x
