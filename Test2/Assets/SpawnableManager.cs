@@ -14,6 +14,13 @@ public class SpawnableManager : MonoBehaviour
     Camera arCam;
     GameObject spawnedObject;
     
+    public GameObject Panel;
+
+    private bool isMenuOpen()
+    {
+        return (Panel.activeInHierarchy);
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +31,7 @@ public class SpawnableManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount == 0)
+        if (Input.touchCount == 0 || isMenuOpen())
             return;
 
         RaycastHit hit;
@@ -51,10 +58,6 @@ public class SpawnableManager : MonoBehaviour
             {
                 spawnedObject.transform.position = m_Hits[0].pose.position;
             }
-            if(Input.GetTouch(0).phase == TouchPhase.Ended)
-            {
-                spawnedObject = null;
-             }
         }
     }
     
