@@ -35,7 +35,7 @@ public class DisplayDestinations : MonoBehaviour
 
             foreach(string place in locations)
             {
-                //itemTemplate.name = place;
+                itemTemplate.name = place;
                 var temp = Instantiate(itemTemplate);
                 temp.GetComponentInChildren<UnityEngine.UI.Text>().text = place;
                 temp.transform.parent = content.transform;
