@@ -15,7 +15,11 @@ using UnityEngine;
 public class DisplayDestinations : MonoBehaviour
 {
     // A template for each item that going to be displayed in the scroll view
-    public GameObject itemTemplate;
+    public GameObject itemTemplate1;
+    // A second item template to have alternation colours of buttons
+    public GameObject itemTemplate2;
+    // A template to spawn the sub title that going to be displayed in the scroll view
+    public GameObject subTitleTemplate;
     // The location where the items are going be placed
     public GameObject content;
 
@@ -33,13 +37,37 @@ public class DisplayDestinations : MonoBehaviour
         {
             string[] locations = line.Split(',');
 
+            var index = 0;
+
             foreach(string place in locations)
             {
-                itemTemplate.name = place;
-                var temp = Instantiate(itemTemplate);
+                GameObject temp;
+
+                if(index == 0)
+                {
+                    // Change the name of the button seen on the Unity Interface
+                    subTitleTemplate.name = place;
+                    temp = Instantiate(subTitleTemplate);
+                }
+                else
+                {
+                    if(index % 2 == 0)
+                    {
+                        itemTemplate2.name = place;
+                        temp = Instantiate(itemTemplate2);
+                    }
+                    else
+                    {
+                        itemTemplate1.name = place;
+                        temp = Instantiate(itemTemplate1);
+                    }
+                    
+                }
+                
                 temp.GetComponentInChildren<UnityEngine.UI.Text>().text = place;
                 temp.transform.parent = content.transform;
 
+                index++;
             }
         }
     }
