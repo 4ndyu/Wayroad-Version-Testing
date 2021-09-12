@@ -271,7 +271,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7889723898870105363}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5641262761401606781}
+        m_TargetAssemblyTypeName: Start_EndConfirmation, Assembly-CSharp
+        m_MethodName: Go_Confirmation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3071238072705348113
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,7 +792,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4967020789523861032}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5641262761401606781}
+        m_TargetAssemblyTypeName: Start_EndConfirmation, Assembly-CSharp
+        m_MethodName: Go_Confirmation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5421887755673009706
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,7 +926,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7250724957906109496}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5641262761401606781}
+        m_TargetAssemblyTypeName: Start_EndConfirmation, Assembly-CSharp
+        m_MethodName: Go_Confirmation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5913729140244198746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,7 +1293,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9138623910758186608}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5641262761401606781}
+        m_TargetAssemblyTypeName: Start_EndConfirmation, Assembly-CSharp
+        m_MethodName: Go_Confirmation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7809887874637767744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,6 +1397,7 @@ GameObject:
   - component: {fileID: 4180257832870185610}
   - component: {fileID: 3900334277128432376}
   - component: {fileID: 5943473105083660316}
+  - component: {fileID: 5641262761401606781}
   m_Layer: 5
   m_Name: Popular Destination
   m_TagString: Untagged
@@ -1443,6 +1492,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5641262761401606781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8167723221840700359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f36d022436b4544086fee0d1d42a1bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  confirmationScreen: {fileID: 6505590929861074187, guid: 422db5c8e50d805419143a55751e5127, type: 3}
+  content: {fileID: 0}
 --- !u!1 &8623154854087528364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,7 +1627,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2687986174708437462}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5641262761401606781}
+        m_TargetAssemblyTypeName: Start_EndConfirmation, Assembly-CSharp
+        m_MethodName: Go_Confirmation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8808652342432099036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,7 +1836,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3607024105480731958}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5641262761401606781}
+        m_TargetAssemblyTypeName: Start_EndConfirmation, Assembly-CSharp
+        m_MethodName: Go_Confirmation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &5345044991841609436
 PrefabInstance:
   m_ObjectHideFlags: 0

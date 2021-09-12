@@ -8,6 +8,11 @@ public class MenuControl : MonoBehaviour
     
     public void toggleMenu()
     {
+        if(GameObject.Find("ConfirmationScreen(Clone)") != null)
+        {
+            Destroy(GameObject.Find("ConfirmationScreen(Clone)"));
+        }
+        
         if(Panel.activeInHierarchy)
         {
             Panel.SetActive(false);
