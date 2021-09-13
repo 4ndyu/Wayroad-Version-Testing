@@ -65,7 +65,9 @@ public class DisplayDestinations : MonoBehaviour
                 }
                 
                 temp.GetComponentInChildren<UnityEngine.UI.Text>().text = place;
+                //temp.transform.localScale = new Vector3(1, 1, 1);
                 temp.transform.parent = content.transform;
+                GameObject.Find(place+"(Clone)").transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
 
                 index++;
             }

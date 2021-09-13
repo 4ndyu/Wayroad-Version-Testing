@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Test_ArFoundation.unity
     guid: c3f68373a2a784943a0c46cb7698cdf8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Test_Ar+GPS_Sample.unity
     guid: b34b07582d3b8c54daf054bea6a6666b
-  - enabled: 0
+  - enabled: 1
     path: Assets/Test_Ar+GPS.unity
     guid: de85c4952d4b77d4599e2386d31b3469
   m_configObjects:
