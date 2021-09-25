@@ -5,15 +5,16 @@ using UnityEngine;
 public class MenuControl : MonoBehaviour
 {
     public GameObject Panel;
-    
+    public GameObject confirmationScreen;
+
     public void toggleMenu()
     {
-        if(GameObject.Find("ConfirmationScreen(Clone)") != null)
+        if (confirmationScreen.activeInHierarchy)
         {
-            Destroy(GameObject.Find("ConfirmationScreen(Clone)"));
+            confirmationScreen.SetActive(false);
         }
-        
-        if(Panel.activeInHierarchy)
+
+        if (Panel.activeInHierarchy)
         {
             Panel.SetActive(false);
         }

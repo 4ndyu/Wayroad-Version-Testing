@@ -528,7 +528,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   confirmationScreen: {fileID: 6505590929861074187}
-  content: {fileID: 0}
 --- !u!1001 &3442606864327407261
 PrefabInstance:
   m_ObjectHideFlags: 0

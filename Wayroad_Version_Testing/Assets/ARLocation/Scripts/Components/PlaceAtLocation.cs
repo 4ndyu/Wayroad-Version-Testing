@@ -222,8 +222,27 @@ namespace ARLocation
         private bool hasInitialized;
         private GroundHeight groundHeight;
 
+       
         // Use this for initialization
-        void Start()
+        /*void Start()
+        {
+            locationProvider = ARLocationProvider.Instance;
+            arLocationManager = ARLocationManager.Instance;
+            arLocationRoot = arLocationManager.gameObject.transform;
+            mainCameraTransform = arLocationManager.MainCamera.transform;
+
+            if (locationProvider == null)
+            {
+                Debug.LogError("[AR+GPS][PlaceAtLocation]: LocationProvider GameObject or Component not found.");
+                return;
+            }
+
+            Initialize();
+
+            hasInitialized = true;
+        }*/
+        
+        public void placeWayPoint()
         {
             locationProvider = ARLocationProvider.Instance;
             arLocationManager = ARLocationManager.Instance;

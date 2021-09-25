@@ -6,7 +6,7 @@ public class Start_EndConfirmation : MonoBehaviour
 {
     public GameObject confirmationScreen;
     // The location where the items are going be placed
-    public GameObject content;
+    //public GameObject content;
 
     public void toggleMenu()
     {
@@ -22,27 +22,40 @@ public class Start_EndConfirmation : MonoBehaviour
         }
     }
 
+    public void toggleConfirmationScreen()
+    {
+        if (confirmationScreen.activeInHierarchy)
+        {
+            confirmationScreen.SetActive(false);
+        }
+        else
+        {
+            confirmationScreen.SetActive(true);
+        }
+    }
+
+    void Start()
+    {
+        confirmationScreen.SetActive(false);
+    }
+
     public void goBack()
     {
         GameObject.Find("MenuButton").GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
-        Destroy(GameObject.Find("ConfirmationScreen(Clone)"));
     }
 
     /**
-     *  Purpose: Instantiate a GameObject to be displayed that confirms the destination
-     *           for the navigation
+     *  Purpose: Displays the navigation confirmation
      *  
      *  Author: Andy Lam Yu
      */
     public void Go_Confirmation()
     {
         toggleMenu();
+        toggleConfirmationScreen();
 
-        // Get the name of the button that was clicked
-        //EventSystem.current.currentSelectedGameObject.name
-        var temp = Instantiate(confirmationScreen);
-        temp.GetComponentInChildren<UnityEngine.UI.Text>().text = "GO!";
-        
+        GameObject.Find("ConfirmationScreen").GetComponentInChildren<UnityEngine.UI.Text>().text = "GO!";
+
 
         // Puts the name of the destination into the destination bar
         // Gets the name of the destination from the button text
@@ -52,6 +65,6 @@ public class Start_EndConfirmation : MonoBehaviour
         var changeLocation = GameObject.Find("ChangeLocationButton").GetComponentInChildren<UnityEngine.UI.Text>().text = "Different Location?";
 
         // Updates the changes of the text
-        temp.transform.parent = content.transform;
+        //temp.transform.parent = content.transform;
     }
 }
