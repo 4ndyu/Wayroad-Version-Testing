@@ -5,6 +5,8 @@ ScriptsOnlyBuild:
     - ARLocation.ARLocationManager
     - ARLocation.ARLocationOrientation
     - ARLocation.ARLocationProvider
+    - ARLocation.LocationData
+    - ARLocation.PlaceAtLocation
     - DisplayDestinations
     - MenuControl
     - Start_EndConfirmation
@@ -20,13 +22,8 @@ ScriptsOnlyBuild:
     - UnityEngine.XR.ARFoundation.ARCameraBackground
     - UnityEngine.XR.ARFoundation.ARCameraManager
     - UnityEngine.XR.ARFoundation.ARInputManager
-    - UnityEngine.XR.ARFoundation.ARPlaneManager
-    - UnityEngine.XR.ARFoundation.ARPoseDriver
-    - UnityEngine.XR.ARFoundation.ARRaycastManager
     - UnityEngine.XR.ARFoundation.ARSession
     - UnityEngine.XR.ARFoundation.ARSessionOrigin
-    Unity.XR.ARKit.Editor.dll:
-    - UnityEditor.XR.ARKit.ARKitSettings
     Unity.XR.Management.Editor.dll:
     - UnityEditor.XR.Management.XRGeneralSettingsPerBuildTarget
     Unity.XR.Management.dll:
@@ -36,6 +33,8 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEngine.SpatialTracking.dll:
+    - UnityEngine.SpatialTracking.TrackedPoseDriver
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -51,7 +50,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Text
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
-    Assets/Promo.unity:
+    Assets/Promo+AR.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -79,65 +78,65 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1462}
-    - Class: 114
       Script: {instanceID: 1464}
     - Class: 114
       Script: {instanceID: 1466}
     - Class: 114
       Script: {instanceID: 1468}
     - Class: 114
-      Script: {instanceID: 1632}
+      Script: {instanceID: 1470}
     - Class: 114
-      Script: {instanceID: 1676}
+      Script: {instanceID: 1634}
     - Class: 114
-      Script: {instanceID: 2526}
+      Script: {instanceID: 1678}
     - Class: 114
-      Script: {instanceID: 2554}
+      Script: {instanceID: 2528}
     - Class: 114
-      Script: {instanceID: 2638}
+      Script: {instanceID: 2556}
     - Class: 114
-      Script: {instanceID: 2708}
+      Script: {instanceID: 2640}
     - Class: 114
-      Script: {instanceID: 2916}
+      Script: {instanceID: 2918}
     - Class: 114
-      Script: {instanceID: 3088}
+      Script: {instanceID: 3090}
     - Class: 114
-      Script: {instanceID: 3100}
+      Script: {instanceID: 3102}
     - Class: 114
-      Script: {instanceID: 3202}
+      Script: {instanceID: 3204}
     - Class: 114
-      Script: {instanceID: 3398}
+      Script: {instanceID: 3406}
     - Class: 114
-      Script: {instanceID: 3404}
+      Script: {instanceID: 3410}
     - Class: 114
-      Script: {instanceID: 3408}
+      Script: {instanceID: 3546}
     - Class: 114
-      Script: {instanceID: 3544}
+      Script: {instanceID: 3582}
     - Class: 114
-      Script: {instanceID: 3604}
+      Script: {instanceID: 3606}
     - Class: 114
-      Script: {instanceID: 3846}
+      Script: {instanceID: 3864}
     - Class: 114
-      Script: {instanceID: 3862}
+      Script: {instanceID: 3902}
     - Class: 114
-      Script: {instanceID: 3910}
+      Script: {instanceID: 3912}
     - Class: 114
-      Script: {instanceID: 3956}
+      Script: {instanceID: 3958}
     - Class: 114
-      Script: {instanceID: 4160}
+      Script: {instanceID: 4162}
     - Class: 114
-      Script: {instanceID: 4218}
+      Script: {instanceID: 4220}
     - Class: 114
-      Script: {instanceID: 4294}
+      Script: {instanceID: 4296}
     - Class: 114
-      Script: {instanceID: 4492}
+      Script: {instanceID: 4494}
     - Class: 114
-      Script: {instanceID: 4772}
+      Script: {instanceID: 4774}
     - Class: 114
-      Script: {instanceID: 4918}
+      Script: {instanceID: 4966}
     - Class: 114
-      Script: {instanceID: 5198}
+      Script: {instanceID: 5200}
+    - Class: 114
+      Script: {instanceID: 130200}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -153,6 +152,10 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 258
+      Script: {instanceID: 0}
+    - Class: 850595691
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -431,12 +434,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
-  - hash:
-      serializedVersion: 2
-      Hash: bb0b2ee6cc25d8d3b8f64826b00a5765
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: startNavigation
   - hash:
       serializedVersion: 2
       Hash: ac4265128ef53145aeeb91616d7673ab
@@ -775,7 +772,7 @@ ScriptsOnlyBuild:
     className: ARBackgroundRendererFeature
   - hash:
       serializedVersion: 2
-      Hash: 2e71e09e36dbf9e33d0c30284e6c5e7c
+      Hash: ea825cefeabeb4e6be5892e3f390c093
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MenuControl
@@ -1075,7 +1072,7 @@ ScriptsOnlyBuild:
     className: DebugInfoOverlay
   - hash:
       serializedVersion: 2
-      Hash: 2d58b7610f04aa1b50ca9a87b7a153da
+      Hash: b81d3f3d2a71fbcf062167f70301819a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Start_EndConfirmation
@@ -1085,7 +1082,13 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: ARLocation
     className: WorldBuilder
+  - hash:
+      serializedVersion: 2
+      Hash: 26e8eb071888e70e327a49170d98aac6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: startNavigation
   platform: 13
   scenePathNames:
-  - Assets/Promo.unity
+  - Assets/Promo+AR.unity
   playerPath: C:/Users/study/Desktop/Wayroad/Wayroad_Version_Testing/Promo.apk

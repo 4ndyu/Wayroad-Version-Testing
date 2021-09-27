@@ -5,8 +5,7 @@ using UnityEngine;
 public class Start_EndConfirmation : MonoBehaviour
 {
     public GameObject confirmationScreen;
-    // The location where the items are going be placed
-    //public GameObject content;
+    public GameObject navigationScreen;
 
     public void toggleMenu()
     {
@@ -56,15 +55,11 @@ public class Start_EndConfirmation : MonoBehaviour
 
         GameObject.Find("ConfirmationScreen").GetComponentInChildren<UnityEngine.UI.Text>().text = "GO!";
 
-
         // Puts the name of the destination into the destination bar
         // Gets the name of the destination from the button text
-        var destBar = GameObject.Find("DestinationBar").GetComponentInChildren<UnityEngine.UI.Text>().text = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponentInChildren<UnityEngine.UI.Text>().text;
+        GameObject.Find("DestinationBar").GetComponentInChildren<UnityEngine.UI.Text>().text = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponentInChildren<UnityEngine.UI.Text>().text;
 
         // Setting the text for a button if the user does not want the current location at their destination
-        var changeLocation = GameObject.Find("ChangeLocationButton").GetComponentInChildren<UnityEngine.UI.Text>().text = "Different Location?";
-
-        // Updates the changes of the text
-        //temp.transform.parent = content.transform;
+        GameObject.Find("ChangeLocationButton").GetComponentInChildren<UnityEngine.UI.Text>().text = "Different Location?";
     }
 }

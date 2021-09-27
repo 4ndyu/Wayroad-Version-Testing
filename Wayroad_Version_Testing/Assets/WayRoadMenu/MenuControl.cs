@@ -6,9 +6,15 @@ public class MenuControl : MonoBehaviour
 {
     public GameObject Panel;
     public GameObject confirmationScreen;
+    public GameObject navigationScreen;
 
     public void toggleMenu()
     {
+        if (navigationScreen.activeInHierarchy)
+        {
+            navigationScreen.SetActive(false);
+        }
+
         if (confirmationScreen.activeInHierarchy)
         {
             confirmationScreen.SetActive(false);

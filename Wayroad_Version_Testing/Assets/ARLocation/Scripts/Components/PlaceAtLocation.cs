@@ -224,7 +224,7 @@ namespace ARLocation
 
        
         // Use this for initialization
-        /*void Start()
+        void Start()
         {
             locationProvider = ARLocationProvider.Instance;
             arLocationManager = ARLocationManager.Instance;
@@ -240,7 +240,7 @@ namespace ARLocation
             Initialize();
 
             hasInitialized = true;
-        }*/
+        }
         
         public void placeWayPoint()
         {
@@ -474,6 +474,10 @@ namespace ARLocation
             return CreatePlacedInstance(go, location, options, useDebugMode);
         }
 
+        public void changeStageLocation(Location newLoc)
+        {
+            state.Location = newLoc;
+        }
 
         private void OnDestroy()
         {
