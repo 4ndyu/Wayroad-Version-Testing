@@ -96,25 +96,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2640}
     - Class: 114
-      Script: {instanceID: 2918}
+      Script: {instanceID: 2916}
     - Class: 114
-      Script: {instanceID: 3090}
+      Script: {instanceID: 3088}
     - Class: 114
-      Script: {instanceID: 3102}
+      Script: {instanceID: 3100}
     - Class: 114
-      Script: {instanceID: 3204}
+      Script: {instanceID: 3202}
     - Class: 114
-      Script: {instanceID: 3406}
+      Script: {instanceID: 3404}
     - Class: 114
-      Script: {instanceID: 3410}
+      Script: {instanceID: 3408}
     - Class: 114
-      Script: {instanceID: 3546}
+      Script: {instanceID: 3544}
     - Class: 114
-      Script: {instanceID: 3582}
+      Script: {instanceID: 3580}
     - Class: 114
-      Script: {instanceID: 3606}
+      Script: {instanceID: 3604}
     - Class: 114
-      Script: {instanceID: 3864}
+      Script: {instanceID: 3862}
+    - Class: 114
+      Script: {instanceID: 3866}
     - Class: 114
       Script: {instanceID: 3902}
     - Class: 114
@@ -135,8 +137,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 4966}
     - Class: 114
       Script: {instanceID: 5200}
-    - Class: 114
-      Script: {instanceID: 130200}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -730,6 +730,12 @@ ScriptsOnlyBuild:
     className: ARPlaneManager
   - hash:
       serializedVersion: 2
+      Hash: 26e8eb071888e70e327a49170d98aac6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: startNavigation
+  - hash:
+      serializedVersion: 2
       Hash: f6eb6bb14ff5f9f55feeeaa8820d8186
     assemblyName: Assembly-CSharp.dll
     namespaceName: ARLocation
@@ -1082,13 +1088,7 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: ARLocation
     className: WorldBuilder
-  - hash:
-      serializedVersion: 2
-      Hash: 26e8eb071888e70e327a49170d98aac6
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: startNavigation
   platform: 13
   scenePathNames:
   - Assets/Promo+AR.unity
-  playerPath: C:/Users/study/Desktop/Wayroad/Wayroad_Version_Testing/Promo.apk
+  playerPath: C:/Users/study/Desktop/Wayroad/Wayroad_Version_Testing/Promo+AR.apk
