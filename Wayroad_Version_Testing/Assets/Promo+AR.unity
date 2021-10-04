@@ -547,6 +547,7 @@ MonoBehaviour:
   WayPoint: {fileID: 919132149155446097, guid: 9886003e5efd9714db8cf77e9f0ceedf, type: 3}
   NavigationScreen: {fileID: 765549798}
   MenuButton: {fileID: 1708498713}
+  Line: {fileID: 0}
 --- !u!4 &311706282
 Transform:
   m_ObjectHideFlags: 0
