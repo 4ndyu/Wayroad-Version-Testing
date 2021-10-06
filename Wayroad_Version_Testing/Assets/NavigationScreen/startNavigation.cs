@@ -8,9 +8,17 @@ public class startNavigation : MonoBehaviour
     public GameObject Cookies;
     public GameObject NavigationScreen;
     public GameObject MenuButton;
+<<<<<<< HEAD
+=======
+    //public LineRender Line;
+    private List<ARLocation.Location> coords = new List<ARLocation.Location>();
+>>>>>>> 4c02e322ea19a619b03c8a7c1f24c775e318e91f
     private string startlocation;
     private string endlocation;
+<<<<<<< HEAD
     private List<ARLocation.Location> coords = new List<ARLocation.Location>();
+=======
+>>>>>>> 4c02e322ea19a619b03c8a7c1f24c775e318e91f
     private int numberOfWaypoints = 0;
 
     void Start()
@@ -107,7 +115,11 @@ public class startNavigation : MonoBehaviour
             char[] removeChar = { '[', ']', ',' };
             string temp;
             string[] tempCoords;
+<<<<<<< HEAD
             coords = new List<ARLocation.Location>();
+=======
+
+>>>>>>> 4c02e322ea19a619b03c8a7c1f24c775e318e91f
             tempCoords = startlocation.Split(',');
             coords.Add(new ARLocation.Location(System.Convert.ToDouble(tempCoords[1]), System.Convert.ToDouble(tempCoords[0])));
 
@@ -122,6 +134,7 @@ public class startNavigation : MonoBehaviour
 
             tempCoords = endlocation.Split(',');
             coords.Add(new ARLocation.Location(System.Convert.ToDouble(tempCoords[1]), System.Convert.ToDouble(tempCoords[0])));
+<<<<<<< HEAD
 
             //int index = 0;
             double differLat;
@@ -134,6 +147,55 @@ public class startNavigation : MonoBehaviour
             double tempLat;
             double tempLong;
             ARLocation.Location tempLoc;
+=======
+
+            //int index = 0;
+            double differLat;
+            double differLong;
+            double biggestDiffer;
+            double numberOfCookies;
+            double modifier = 0.0001;
+            double distanceModifierLat;
+            double distanceModifierLong;
+            ARLocation.Location tempLoc;
+
+            numberOfWaypoints = 0;
+
+            for (int i = 0; i < coords.Count; i++)
+            {
+                if(i > 0)
+                {
+                    differLat = coords[i-1].Latitude - coords[i].Latitude;
+                    differLong = coords[i-1].Longitude - coords[i].Longitude;
+
+                    if (differLat > differLong)
+                        biggestDiffer = differLat;
+                    else
+                        biggestDiffer = differLong;
+
+                    numberOfCookies = biggestDiffer / modifier;
+
+                    distanceModifierLat = differLat / (int) numberOfCookies;
+                    distanceModifierLong = differLong / (int) numberOfCookies;
+
+                    for (int ii = 1; ii <= numberOfCookies; ii++)
+                    {
+                        tempLoc = new ARLocation.Location(coords[i].Latitude + (distanceModifierLat * ii), coords[i].Longitude + (distanceModifierLong * ii));
+                        placeWaypoint(tempLoc, "Waypoint " + numberOfWaypoints);
+                        numberOfWaypoints++;
+                    }
+
+                    placeWaypoint(coords[i], "Waypoint " + numberOfWaypoints);
+                }
+
+                numberOfWaypoints++;
+            }
+
+            /*foreach (string values in coords)
+            {
+                ///
+                string[] tempCoords = values.Split(',');
+>>>>>>> 4c02e322ea19a619b03c8a7c1f24c775e318e91f
 
             numberOfWaypoints = 0;
 
@@ -170,8 +232,14 @@ public class startNavigation : MonoBehaviour
                     placeWaypoint(coords[i], "Waypoint " + numberOfWaypoints);
                 }
 
+<<<<<<< HEAD
                 numberOfWaypoints++;
             }
+=======
+                ///
+                index++;
+            }*/
+>>>>>>> 4c02e322ea19a619b03c8a7c1f24c775e318e91f
         }
         else
         {
@@ -179,7 +247,11 @@ public class startNavigation : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     private void placeWaypoint(ARLocation.Location loc, string name)
+=======
+    /*private void placeWaypoint(double latit, double longit, string name)
+>>>>>>> 4c02e322ea19a619b03c8a7c1f24c775e318e91f
     {
         var opts = new ARLocation.PlaceAtLocation.PlaceAtOptions()
         {
@@ -206,6 +278,25 @@ public class startNavigation : MonoBehaviour
 
         Cookies.name = name;
 
+<<<<<<< HEAD
         ARLocation.PlaceAtLocation.CreatePlacedInstance(Cookies, loc, opts, false);
+=======
+        ARLocation.PlaceAtLocation.CreatePlacedInstance(WayPoint, loc, opts, false);
+    }*/
+
+    private void placeWaypoint(ARLocation.Location loc, string name)
+    {
+        var opts = new ARLocation.PlaceAtLocation.PlaceAtOptions()
+        {
+            HideObjectUntilItIsPlaced = true,
+            MaxNumberOfLocationUpdates = 4,
+            MovementSmoothing = 0.1f,
+            UseMovingAverage = false
+        };
+
+        WayPoint.name = name;
+
+        ARLocation.PlaceAtLocation.CreatePlacedInstance(WayPoint, loc, opts, false);
+>>>>>>> 4c02e322ea19a619b03c8a7c1f24c775e318e91f
     }
 }
