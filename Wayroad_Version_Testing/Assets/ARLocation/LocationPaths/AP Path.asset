@@ -13,36 +13,26 @@ MonoBehaviour:
   m_Name: AP Path
   m_EditorClassIdentifier: 
   Locations:
-  - Latitude: -23.542026
-    Longitude: -46.647769
-    Altitude: 200
+  - Latitude: -32.06738860530274
+    Longitude: 115.83475328630982
+    Altitude: 0
     AltitudeMode: 1
     Label: 
-  - Latitude: -23.541089
-    Longitude: -46.647649
-    Altitude: 150
+  - Latitude: -32.06708629993923
+    Longitude: 115.83458698935851
+    Altitude: 0
     AltitudeMode: 1
     Label: 
-  - Latitude: -23.540577
-    Longitude: -46.647726
-    Altitude: 80
+  - Latitude: -32.06684763709843
+    Longitude: 115.83457089610332
+    Altitude: 0
     AltitudeMode: 1
     Label: 
-  - Latitude: -23.539887
-    Longitude: -46.648056
-    Altitude: 30
+  - Latitude: -32.066874912882525
+    Longitude: 115.8350939268372
+    Altitude: 0
     AltitudeMode: 1
     Label: 
-  - Latitude: -23.539184
-    Longitude: -46.648357
-    Altitude: 20
-    AltitudeMode: 1
-    Label: 
-  - Latitude: -23.538224
-    Longitude: -46.648792
-    Altitude: -10
-    AltitudeMode: 1
-    Label: 
-  SplineType: 0
+  SplineType: 1
   Alpha: 0.5
   SceneViewScale: 1

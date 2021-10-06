@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class LineRender : MonoBehaviour
 {
-    public LineRenderer LineRenderer;
-    private int index = 0;
+    //public GameObject prefab;
+    //public LineRenderer line = gameObject.AddComponent<LineRenderer>();
+    private List<Vector3> pos = new List<Vector3>();
 
-    public void addLine(Transform WayPoint1, Transform WayPoint2)
+    public void addLine(Vector3 WayPoint1, Vector3 WayPoint2)
     {
-        LineRenderer.startColor = Color.red;
-        LineRenderer.endColor = Color.red;
+        LineRenderer lineObject = GameObject.Find("LineRenderer").GetComponent<LineRenderer>();
 
-        LineRenderer.startWidth = 0.3f;
-        LineRenderer.endWidth = 0.3f;
+        pos.Add(WayPoint1);
+        pos.Add(WayPoint2);
 
-        LineRenderer.SetPosition(0, WayPoint1.position);
-        index++;
-        LineRenderer.SetPosition(index, WayPoint2.position);
-        index++;
+        lineObject.startColor = Color.red;
+        lineObject.endColor = Color.red;
+
+        lineObject.startWidth = 0.3f;
+        lineObject.endWidth = 0.3f;
+
+        lineObject.SetPositions(pos.ToArray());
     }
 }

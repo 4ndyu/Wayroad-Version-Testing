@@ -39,5 +39,21 @@ namespace ARLocation
             moveAlongPath.PathSettings = PathSettings;
             moveAlongPath.PlacementSettings = PlacementSettings;
         }
-    }
+
+        public void drawLine(Location[] coords)
+        {
+            LocationPath path = new LocationPath();
+            path.Locations = coords;
+            MoveAlongPath.PathSettingsData line = new MoveAlongPath.PathSettingsData();
+            line.LocationPath = path;
+
+            arLocationRoot = ARLocationManager.Instance.gameObject.transform;
+
+            var pathGameObject = new GameObject($"{gameObject.name} - RenderPathLine");
+
+            var moveAlongPath = pathGameObject.AddComponent<MoveAlongPath>();
+            moveAlongPath.PathSettings = line;
+            moveAlongPath.PlacementSettings = PlacementSettings;
+        }
+}
 }

@@ -17,7 +17,7 @@ namespace ARLocation
         public Location[] Locations;
 
         [FormerlySerializedAs("splineType")] [Tooltip("The type of the spline used")]
-        public SplineType SplineType = SplineType.CatmullromSpline;
+        public SplineType SplineType = SplineType.LinearSpline;
 
         /// <summary>
         /// The path's alpha/tension factor.
