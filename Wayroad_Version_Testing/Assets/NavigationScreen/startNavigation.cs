@@ -7,18 +7,12 @@ public class startNavigation : MonoBehaviour
     public GameObject WayPoint;
     public GameObject Cookies;
     public GameObject NavigationScreen;
+    public GameObject EndScreen;
     public GameObject MenuButton;
-<<<<<<< HEAD
-=======
     //public LineRender Line;
-    private List<ARLocation.Location> coords = new List<ARLocation.Location>();
->>>>>>> 4c02e322ea19a619b03c8a7c1f24c775e318e91f
     private string startlocation;
     private string endlocation;
-<<<<<<< HEAD
     private List<ARLocation.Location> coords = new List<ARLocation.Location>();
-=======
->>>>>>> 4c02e322ea19a619b03c8a7c1f24c775e318e91f
     private int numberOfWaypoints = 0;
 
     void Start()
@@ -115,11 +109,7 @@ public class startNavigation : MonoBehaviour
             char[] removeChar = { '[', ']', ',' };
             string temp;
             string[] tempCoords;
-<<<<<<< HEAD
             coords = new List<ARLocation.Location>();
-=======
-
->>>>>>> 4c02e322ea19a619b03c8a7c1f24c775e318e91f
             tempCoords = startlocation.Split(',');
             coords.Add(new ARLocation.Location(System.Convert.ToDouble(tempCoords[1]), System.Convert.ToDouble(tempCoords[0])));
 
@@ -134,9 +124,7 @@ public class startNavigation : MonoBehaviour
 
             tempCoords = endlocation.Split(',');
             coords.Add(new ARLocation.Location(System.Convert.ToDouble(tempCoords[1]), System.Convert.ToDouble(tempCoords[0])));
-<<<<<<< HEAD
 
-            //int index = 0;
             double differLat;
             double differLong;
             double biggestDiffer;
@@ -146,17 +134,6 @@ public class startNavigation : MonoBehaviour
             double distanceModifierLong;
             double tempLat;
             double tempLong;
-            ARLocation.Location tempLoc;
-=======
-
-            //int index = 0;
-            double differLat;
-            double differLong;
-            double biggestDiffer;
-            double numberOfCookies;
-            double modifier = 0.0001;
-            double distanceModifierLat;
-            double distanceModifierLong;
             ARLocation.Location tempLoc;
 
             numberOfWaypoints = 0;
@@ -168,78 +145,35 @@ public class startNavigation : MonoBehaviour
                     differLat = coords[i-1].Latitude - coords[i].Latitude;
                     differLong = coords[i-1].Longitude - coords[i].Longitude;
 
-                    if (differLat > differLong)
-                        biggestDiffer = differLat;
-                    else
-                        biggestDiffer = differLong;
+                    biggestDiffer = findBiggestDiff(differLat, differLong);
 
                     numberOfCookies = biggestDiffer / modifier;
 
                     distanceModifierLat = differLat / (int) numberOfCookies;
                     distanceModifierLong = differLong / (int) numberOfCookies;
 
-                    for (int ii = 1; ii <= numberOfCookies; ii++)
-                    {
-                        tempLoc = new ARLocation.Location(coords[i].Latitude + (distanceModifierLat * ii), coords[i].Longitude + (distanceModifierLong * ii));
-                        placeWaypoint(tempLoc, "Waypoint " + numberOfWaypoints);
-                        numberOfWaypoints++;
-                    }
-
-                    placeWaypoint(coords[i], "Waypoint " + numberOfWaypoints);
-                }
-
-                numberOfWaypoints++;
-            }
-
-            /*foreach (string values in coords)
-            {
-                ///
-                string[] tempCoords = values.Split(',');
->>>>>>> 4c02e322ea19a619b03c8a7c1f24c775e318e91f
-
-            numberOfWaypoints = 0;
-
-            for (int i = 0; i < coords.Count; i++)
-            {
-                if (i > 0)
-                {
-                    differLat = coords[i - 1].Latitude - coords[i].Latitude;
-                    differLong = coords[i - 1].Longitude - coords[i].Longitude;
-
-                    if (differLat > differLong)
-                        biggestDiffer = differLat;
-                    else
-                        biggestDiffer = differLong;
-
-                    numberOfCookies = biggestDiffer / modifier;
-
-                    distanceModifierLat = differLat / numberOfCookies;
-                    distanceModifierLong = differLong / numberOfCookies;
-
                     tempLat = coords[i].Latitude;
                     tempLong = coords[i].Longitude;
 
-                    for (int ii = 0; ii < numberOfCookies; ii++)
+                    for (int ii = 1; ii <= numberOfCookies; ii++)
                     {
                         tempLat += distanceModifierLat;
                         tempLong += distanceModifierLong;
                         tempLoc = new ARLocation.Location(tempLat, tempLong);
-                        
                         placeCookies(tempLoc, "Waypoint " + numberOfWaypoints);
                         numberOfWaypoints++;
                     }
 
                     placeWaypoint(coords[i], "Waypoint " + numberOfWaypoints);
+
+                    if (i == coords.Count)
+                    {
+                        GameObject.Find("Waypoint " + numberOfWaypoints).AddComponent<DistanceChecker>();
+                    }
                 }
 
-<<<<<<< HEAD
                 numberOfWaypoints++;
             }
-=======
-                ///
-                index++;
-            }*/
->>>>>>> 4c02e322ea19a619b03c8a7c1f24c775e318e91f
         }
         else
         {
@@ -247,23 +181,22 @@ public class startNavigation : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
-    private void placeWaypoint(ARLocation.Location loc, string name)
-=======
-    /*private void placeWaypoint(double latit, double longit, string name)
->>>>>>> 4c02e322ea19a619b03c8a7c1f24c775e318e91f
+    private double findBiggestDiff(double num1, double num2)
     {
-        var opts = new ARLocation.PlaceAtLocation.PlaceAtOptions()
-        {
-            HideObjectUntilItIsPlaced = true,
-            MaxNumberOfLocationUpdates = 4,
-            MovementSmoothing = 0.1f,
-            UseMovingAverage = false
-        };
+        double bigNum;
 
-        WayPoint.name = name;
+        if (num1 < 0)
+            num1 = num1 * -1;
 
-        ARLocation.PlaceAtLocation.CreatePlacedInstance(WayPoint, loc, opts, false);
+        if (num2 < 0)
+            num2 = num2 * -1;
+
+        if (num1 > num2)
+            bigNum = num1;
+        else
+            bigNum = num2;
+
+        return (bigNum);
     }
 
     private void placeCookies(ARLocation.Location loc, string name)
@@ -278,11 +211,8 @@ public class startNavigation : MonoBehaviour
 
         Cookies.name = name;
 
-<<<<<<< HEAD
         ARLocation.PlaceAtLocation.CreatePlacedInstance(Cookies, loc, opts, false);
-=======
-        ARLocation.PlaceAtLocation.CreatePlacedInstance(WayPoint, loc, opts, false);
-    }*/
+    }
 
     private void placeWaypoint(ARLocation.Location loc, string name)
     {
@@ -297,6 +227,14 @@ public class startNavigation : MonoBehaviour
         WayPoint.name = name;
 
         ARLocation.PlaceAtLocation.CreatePlacedInstance(WayPoint, loc, opts, false);
->>>>>>> 4c02e322ea19a619b03c8a7c1f24c775e318e91f
+    }
+
+    public void toggleEndScreen()
+    {
+        EndScreen.SetActive(true);
+        EndScreen.GetComponentInChildren<UnityEngine.UI.Text>().text = "You Have Arraive at " + GameObject.Find("DestinationBar").GetComponentInChildren<UnityEngine.UI.Text>().text;
+
+        // Setting the text for a button if the user does not want the current location at their destination
+        GameObject.Find("ChangeLocationButton").GetComponentInChildren<UnityEngine.UI.Text>().text = "New Destination?";
     }
 }
